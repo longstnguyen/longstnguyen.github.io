@@ -67,13 +67,27 @@ p {
 
 /* Latest news list: align with section left edge */
 .latest-news-list {
-  margin: 0;
-  padding-left: 0;
-  list-style-position: inside;
+  margin: 0 0 1.2em 0.6em;
+  padding-left: 0.3em;
+  list-style-position: outside;
 }
 
 .latest-news-list li {
   margin-bottom: 0.25em;
+}
+
+/* Content lists: match the Latest News left alignment (do not affect sidebar/nav) */
+#colorlib-main ul {
+  margin: 0 0 1.2em 0.6em;
+  padding-left: 0.3em;
+  list-style-position: outside;
+}
+
+/* Nested lists should still show hierarchy */
+#colorlib-main ul ul {
+  margin-top: 0.6em;
+  padding-left: 1.5em;
+  list-style-position: outside;
 }
 
 /* Make main-content text a bit more compact (does not affect the sidebar) */
@@ -181,9 +195,19 @@ figure figcaption {
 }
 #colorlib-aside .position {
   display: block;
-  margin-bottom: 2em;
+  margin-bottom: 0.35em;
   font-size: 12px;
   text-transform: uppercase;
+}
+
+/* When multiple positions are stacked, keep them tight */
+#colorlib-aside .position + .position {
+  margin-top: -0.1em;
+}
+
+/* Keep a bit more breathing room after the last position line */
+#colorlib-aside .position:last-of-type {
+  margin-bottom: 2.25em;
 }
 #colorlib-aside #colorlib-logo {
   text-align: right;
