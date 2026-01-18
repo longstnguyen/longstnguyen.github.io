@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local tooling (if you add Node/Prettier later)
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Build outputs (if you add a build step later)
+dist/
