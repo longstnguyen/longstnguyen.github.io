@@ -65,6 +65,17 @@ p {
   margin-bottom: 1.5em;
 }
 
+/* Latest news list: align with section left edge */
+.latest-news-list {
+  margin: 0;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.latest-news-list li {
+  margin-bottom: 0.25em;
+}
+
 /* Make main-content text a bit more compact (does not affect the sidebar) */
 #colorlib-main p {
   margin-bottom: 1.1em;
