@@ -93,6 +93,28 @@ p {
 /* Make main-content text a bit more compact (does not affect the sidebar) */
 #colorlib-main p {
   margin-bottom: 1.1em;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Muted ranking/meta labels like (SCIE, Q1), (CORE A*) */
+#colorlib-main .rank-tag {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+html[data-theme="dark"] #colorlib-main .rank-tag {
+  opacity: 0.75;
+}
+
+/* Justify list text in main content (education/experience/news, etc.) */
+#colorlib-main li {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 h1,
