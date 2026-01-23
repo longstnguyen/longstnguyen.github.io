@@ -106,7 +106,28 @@ p {
 }
 
 html[data-theme="dark"] #colorlib-main .rank-tag {
-  opacity: 0.75;
+  opacity: 0.4;
+}
+
+/* Publications list: show [1]. [2]. ... and align close to left edge */
+#colorlib-main ol.pub-list {
+  list-style: none;
+  margin: 0 0 0 0;
+  padding-left: 0;
+  counter-reset: pub;
+}
+
+#colorlib-main ol.pub-list > li {
+  counter-increment: pub;
+  position: relative;
+  padding-left: 2.1em;
+  margin-bottom: 0.25em;
+}
+
+#colorlib-main ol.pub-list > li::before {
+  content: "[" counter(pub) "].";
+  position: absolute;
+  left: 0;
 }
 
 /* Justify list text in main content (education/experience/news, etc.) */
