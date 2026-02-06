@@ -120,14 +120,66 @@ html[data-theme="dark"] #colorlib-main .rank-tag {
 #colorlib-main ol.pub-list > li {
   counter-increment: pub;
   position: relative;
-  padding-left: 2.1em;
+  padding-left: 2.35em;
   margin-bottom: 0.25em;
 }
 
 #colorlib-main ol.pub-list > li::before {
-  content: "[" counter(pub) "].";
+  content: "[" counter(pub) "]";
   position: absolute;
   left: 0;
+}
+
+/* Continuous numbering across multiple year lists */
+#colorlib-main .pubs-continue {
+  counter-reset: pub;
+}
+
+#colorlib-main .pubs-continue ol.pub-list {
+  counter-reset: none;
+}
+
+/* Publications page helpers: year headers + link chips */
+#colorlib-main .pub-year {
+  margin-top: 1.6em;
+  margin-bottom: 0.75em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#colorlib-main .pub-year .year {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--color-text-strong);
+  letter-spacing: 0.5px;
+  position: relative;
+  top: -4px;
+}
+
+#colorlib-main .pub-year::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+#colorlib-main .pub-links {
+  margin-left: 0.25em;
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+
+#colorlib-main .pub-links a {
+  color: var(--color-primary);
+  text-transform: lowercase;
+  letter-spacing: 0.3px;
+}
+
+#colorlib-main .pub-links a:hover,
+#colorlib-main .pub-links a:focus {
+  color: var(--color-primary-hover);
 }
 
 /* Justify list text in main content (education/experience/news, etc.) */
@@ -659,7 +711,8 @@ body.offcanvas .colorlib-nav-toggle {
 }
 
 .colorlib-narrow-content {
-  padding: 0 2.5em;
+  /* Keep left gutter as-is, slightly reduce right gutter */
+  padding: 0 0em 0 2.5em;
 }
 @media screen and (max-width: 768px) {
   .colorlib-narrow-content {
