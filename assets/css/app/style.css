@@ -133,22 +133,26 @@ html[data-theme="dark"] .latest-news-scroll {
 
 /* Mobile: keep bullets visible (overflow scroll can clip outside markers) */
 @media screen and (max-width: 768px) {
+  /* Full-bleed Latest News box (counteracts #colorlib-main { padding: 0 1em; }) */
+  .page-home .latest-news-wrap {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+
   .latest-news-scroll {
-    /* Ensure list markers have room inside the scroll area */
-    padding-left: 2px;
-    /* Reserve space so text doesn't sit under the scrollbar */
-    padding-right: 14px;
-    /* iOS Safari can clip list markers when overflow-x is hidden */
+    /* Keep inner content aligned with the rest of the page */
+    padding-left: 1em;
+    padding-right: 1em;
     overflow-x: visible;
   }
 
   .latest-news-scroll .latest-news-list {
     /* No extra bottom space inside the scroll box */
     margin: 0;
-    padding-left: 0;
     list-style-type: disc;
-    /* Prevent marker clipping inside overflow-y:auto on mobile browsers */
-    list-style-position: inside;
+    /* Match normal lists in main content */
+    padding-left: 0.3em;
+    list-style-position: outside;
   }
 
   /* Mobile: make the Latest News scrollbar look shorter */
@@ -278,25 +282,18 @@ html[data-theme="dark"] .latest-news-scroll {
   .latest-news-wrap .latest-news-fade,
   .latest-news-scroll .latest-news-fade {
     right: 0px;
-    /* Keep fade full-width, but don't dim the scrollbar area */
-    padding-right: 14px;
-    box-sizing: border-box;
-    background-clip: content-box;
   }
 }
 
 @media screen and (max-width: 768px) {
-  /* Mobile has no hover: keep the scrollbar thumb visible */
+  /* Mobile: hide the scrollbar entirely */
   .latest-news-scroll {
-    scrollbar-width: thin;
+    scrollbar-width: none;
   }
 
-  .latest-news-scroll::-webkit-scrollbar-thumb {
-    background-color: color-mix(
-      in srgb,
-      var(--color-text-muted) 45%,
-      transparent
-    );
+  .latest-news-scroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
 }
 
