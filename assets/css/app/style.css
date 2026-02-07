@@ -136,25 +136,9 @@ html[data-theme="dark"] .latest-news-scroll {
     /* Match the main-content UL spacing */
     margin: 0 0 1.2em 0.6em;
     padding-left: 0.3em;
-    list-style: none;
-  }
-
-  .latest-news-scroll .latest-news-list li {
-    position: relative;
-    padding-left: 1.35em;
-  }
-
-  .latest-news-scroll .latest-news-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.35em;
-    text-align: center;
-    font-size: 1em;
-    line-height: inherit;
-    color: currentColor;
-    opacity: 1;
+    list-style-type: disc;
+    /* Prevent marker clipping inside overflow-y:auto on mobile browsers */
+    list-style-position: inside;
   }
 }
 
