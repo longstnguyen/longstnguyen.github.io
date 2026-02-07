@@ -115,15 +115,25 @@ html[data-theme="dark"] .latest-news-scroll {
 .latest-news-scroll .latest-news-list {
   margin: 0;
   padding-left: 1.05em;
+  list-style-type: disc;
+  list-style-position: outside;
 }
 
 .latest-news-scroll .latest-news-list li {
   margin-bottom: 0.35em;
 }
 
-/* WebKit scrollbar: always visible */
+/* Mobile: keep bullets visible (overflow scroll can clip outside markers) */
+@media screen and (max-width: 768px) {
+  .latest-news-scroll .latest-news-list {
+    padding-left: 0.35em;
+    list-style-position: inside;
+  }
+}
+
+/* WebKit scrollbar: keep a stable gutter; show thumb on hover/focus */
 .latest-news-scroll::-webkit-scrollbar {
-  width: 0;
+  width: 6px;
 }
 
 .latest-news-scroll::-webkit-scrollbar-track {
@@ -131,14 +141,50 @@ html[data-theme="dark"] .latest-news-scroll {
 }
 
 .latest-news-scroll::-webkit-scrollbar-thumb {
-  background-color: color-mix(
-    in srgb,
-    var(--color-text-muted) 40%,
-    transparent
-  );
+  background-color: transparent;
   border-radius: 999px;
   border: 1px solid transparent;
   background-clip: content-box;
+}
+
+/* Firefox: thinner page scrollbars (no exact px control available) */
+.page-home,
+.page-publications {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-text-muted) 45%, transparent)
+    transparent;
+}
+
+/* Home/Publications polish: thinner + visually shorter scrollbar */
+.page-home .latest-news-scroll::-webkit-scrollbar,
+.page-publications .latest-news-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.page-home .latest-news-scroll::-webkit-scrollbar-track,
+.page-publications .latest-news-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 14px 0;
+}
+
+.page-home .latest-news-scroll::-webkit-scrollbar-thumb,
+.page-publications .latest-news-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+/* Slim scrollbars across Home/Publications pages (keeps existing thumb-visibility rules) */
+.page-home ::-webkit-scrollbar,
+.page-publications ::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+.page-home ::-webkit-scrollbar-track,
+.page-publications ::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 14px 0;
 }
 
 /* Reveal scrollbar when user hovers the box (or focuses a link inside) */
@@ -147,23 +193,33 @@ html[data-theme="dark"] .latest-news-scroll {
   scrollbar-width: thin;
 }
 
-.latest-news-wrap:hover .latest-news-scroll::-webkit-scrollbar,
-.latest-news-wrap:focus-within .latest-news-scroll::-webkit-scrollbar {
-  width: 6px;
-}
-
-.latest-news-scroll::-webkit-scrollbar-thumb:hover {
+/* (WebKit) Show thumb only on hover/focus */
+.latest-news-wrap:hover .latest-news-scroll::-webkit-scrollbar-thumb,
+.latest-news-wrap:focus-within .latest-news-scroll::-webkit-scrollbar-thumb {
   background-color: color-mix(
     in srgb,
-    var(--color-text-muted) 55%,
+    var(--color-text-muted) 45%,
     transparent
   );
 }
 
-.latest-news-scroll::-webkit-scrollbar-thumb:active {
+/* Extra emphasis when interacting with the thumb */
+.latest-news-wrap:hover .latest-news-scroll::-webkit-scrollbar-thumb:hover,
+.latest-news-wrap:focus-within
+  .latest-news-scroll::-webkit-scrollbar-thumb:hover {
   background-color: color-mix(
     in srgb,
-    var(--color-text-muted) 70%,
+    var(--color-text-muted) 60%,
+    transparent
+  );
+}
+
+.latest-news-wrap:hover .latest-news-scroll::-webkit-scrollbar-thumb:active,
+.latest-news-wrap:focus-within
+  .latest-news-scroll::-webkit-scrollbar-thumb:active {
+  background-color: color-mix(
+    in srgb,
+    var(--color-text-muted) 75%,
     transparent
   );
 }
@@ -188,6 +244,13 @@ html[data-theme="dark"] .latest-news-scroll {
   opacity: 1;
   transition: opacity 160ms ease;
   z-index: 2;
+}
+
+.page-home .latest-news-wrap .latest-news-fade,
+.page-home .latest-news-scroll .latest-news-fade,
+.page-publications .latest-news-wrap .latest-news-fade,
+.page-publications .latest-news-scroll .latest-news-fade {
+  right: 5px;
 }
 
 .latest-news-wrap[data-at-bottom="true"] .latest-news-fade,
