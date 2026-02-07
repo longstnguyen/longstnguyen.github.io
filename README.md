@@ -13,15 +13,24 @@ From the repo root:
 
 ## Structure
 
-- `index.html`: main page
-- `files/`: downloadable files (e.g., CV PDF)
-- `assets/`
-  - `css/vendor/`: third-party CSS (Bootstrap, Animate.css, font-face bundles)
-  - `css/app/`: site-specific CSS
-  - `js/vendor/`: third-party JS (jQuery, Bootstrap, Waypoints, Modernizr)
-  - `js/app/`: site-specific JS
-  - `img/`: images
-
-## Notes
-
-- `.nojekyll` is present to disable Jekyll processing on GitHub Pages.
+```text
+.
+├── index.html
+├── publications/
+│   └── index.html
+├── files/
+│   ├── papers/            # publication PDFs
+│   └── bib/               # BibTeX entries
+├── assets/
+│   ├── css/
+│   │   ├── app/           # site-specific CSS
+│   │   └── vendor/        # third-party CSS + font-face bundles
+│   ├── js/
+│   │   ├── app/           # site-specific JS
+│   │   └── vendor/        # third-party JS
+│   └── img/
+├── robots.txt
+├── sitemap.xml
+├── .nojekyll
+└── README.md
+```
