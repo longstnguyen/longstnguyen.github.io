@@ -127,15 +127,15 @@ html[data-theme="dark"] .latest-news-scroll {
 @media screen and (max-width: 768px) {
   .latest-news-scroll {
     /* Ensure list markers have room inside the scroll area */
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 0px;
+    padding-right: 8px;
     overflow-x: hidden;
   }
 
   .latest-news-scroll .latest-news-list {
     /* Match the main-content UL spacing */
-    margin: 0 0 1.2em 0.6em;
-    padding-left: 0.3em;
+    margin: 0 0 1.2em 0em;
+    padding-left: 0;
     list-style-type: disc;
     /* Prevent marker clipping inside overflow-y:auto on mobile browsers */
     list-style-position: inside;
@@ -262,6 +262,14 @@ html[data-theme="dark"] .latest-news-scroll {
 .page-publications .latest-news-wrap .latest-news-fade,
 .page-publications .latest-news-scroll .latest-news-fade {
   right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  /* Mobile: fade should span the full box width */
+  .latest-news-wrap .latest-news-fade,
+  .latest-news-scroll .latest-news-fade {
+    right: 0;
+  }
 }
 
 .latest-news-wrap[data-at-bottom="true"] .latest-news-fade,
