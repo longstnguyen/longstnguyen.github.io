@@ -143,9 +143,9 @@ html[data-theme="dark"] .latest-news-scroll {
 
   .page-home .latest-news-scroll {
     /* Make the visible box itself flush with the viewport edges */
-    width: calc(100% + 2em);
-    margin-left: -1em;
-    margin-right: -1em;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     box-sizing: border-box;
 
     /* Keep inner content aligned with the rest of the page */
