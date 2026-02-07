@@ -135,10 +135,11 @@ html[data-theme="dark"] .latest-news-scroll {
 @media screen and (max-width: 768px) {
   .latest-news-scroll {
     /* Ensure list markers have room inside the scroll area */
-    padding-left: 0px;
+    padding-left: 2px;
     /* Reserve space so text doesn't sit under the scrollbar */
     padding-right: 14px;
-    overflow-x: hidden;
+    /* iOS Safari can clip list markers when overflow-x is hidden */
+    overflow-x: visible;
   }
 
   .latest-news-scroll .latest-news-list {
