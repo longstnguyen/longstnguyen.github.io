@@ -125,14 +125,38 @@ html[data-theme="dark"] .latest-news-scroll {
 
 /* Mobile: keep bullets visible (overflow scroll can clip outside markers) */
 @media screen and (max-width: 768px) {
+  /* Expand Latest News to device width (cancel #colorlib-main { padding: 0 1em }) */
+  .page-home .latest-news-wrap {
+    width: calc(100% + 2em);
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+
   .latest-news-scroll {
     /* Ensure list markers have room inside the scroll area */
-    padding-left: 0.9em;
+    padding-left: 1em;
+    padding-right: 1em;
+    overflow-x: hidden;
   }
 
   .latest-news-scroll .latest-news-list {
-    padding-left: 1.05em;
-    list-style-position: outside;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .latest-news-scroll .latest-news-list li {
+    position: relative;
+    padding-left: 1.1em;
+  }
+
+  .latest-news-scroll .latest-news-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: inherit;
+    color: currentColor;
+    opacity: 0.9;
   }
 }
 
