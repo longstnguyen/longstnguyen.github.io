@@ -2072,7 +2072,7 @@ html[data-theme="dark"] .colorlib-nav-toggle.active i {
 
   /* Mobile: push content down a bit under the fixed hamburger/X */
   #colorlib-main {
-    padding-top: 30px;
+    padding-top: 50px;
   }
 }
 
