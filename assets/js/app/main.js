@@ -193,6 +193,113 @@
     });
   };
 
+  // Latest News: make the list scrollable and show exactly N items.
+  // Markup:
+  // <div class="latest-news-wrap" data-visible-items="8">
+  //   <div class="latest-news-scroll">
+  //     <ul class="latest-news-list"> ... </ul>
+  //   </div>
+  //   <div class="latest-news-fade"></div>
+  // </div>
+  var initLatestNewsScroll = function () {
+    try {
+      var wrappers = document.querySelectorAll(".latest-news-wrap");
+      var legacyContainers = document.querySelectorAll(".latest-news-scroll");
+
+      var containers =
+        wrappers && wrappers.length ? wrappers : legacyContainers;
+      if (!containers || !containers.length) return;
+
+      var getScrollEl = function (container) {
+        var inner = container.querySelector
+          ? container.querySelector(".latest-news-scroll")
+          : null;
+        return inner || container;
+      };
+
+      var parseVisibleItems = function (el) {
+        var raw = el.getAttribute("data-visible-items") || "8";
+        var n = parseInt(raw, 10);
+        return isNaN(n) || n < 1 ? 8 : n;
+      };
+
+      var updateFade = function (container, scrollEl) {
+        var atTop = scrollEl.scrollTop <= 1;
+        var atBottom =
+          scrollEl.scrollTop + scrollEl.clientHeight >=
+          scrollEl.scrollHeight - 1;
+        container.setAttribute("data-at-top", atTop ? "true" : "false");
+        container.setAttribute("data-at-bottom", atBottom ? "true" : "false");
+      };
+
+      var updateHeight = function (container) {
+        var scrollEl = getScrollEl(container);
+        var list = scrollEl.querySelector(".latest-news-list");
+        if (!list) return;
+
+        var items = list.querySelectorAll("li");
+        var visibleItems = parseVisibleItems(container);
+
+        if (!items || items.length <= visibleItems) {
+          scrollEl.style.maxHeight = "none";
+          container.setAttribute("data-at-top", "true");
+          container.setAttribute("data-at-bottom", "true");
+          return;
+        }
+
+        var target = items[visibleItems - 1];
+        if (!target) return;
+
+        var styles = window.getComputedStyle(scrollEl);
+        var padBottom = parseFloat(styles.paddingBottom) || 0;
+
+        // Height to fully include the first N items.
+        // list.offsetTop accounts for container padding-top.
+        var height =
+          list.offsetTop + target.offsetTop + target.offsetHeight + padBottom;
+
+        scrollEl.style.maxHeight = Math.ceil(height) + "px";
+        updateFade(container, scrollEl);
+      };
+
+      var updateAll = function () {
+        for (var i = 0; i < containers.length; i++) {
+          updateHeight(containers[i]);
+        }
+      };
+
+      // Initial sizing + listeners
+      updateAll();
+      window.addEventListener("resize", updateAll);
+
+      for (var j = 0; j < containers.length; j++) {
+        (function (container) {
+          var scrollEl = getScrollEl(container);
+          scrollEl.addEventListener(
+            "scroll",
+            function () {
+              updateFade(container, scrollEl);
+            },
+            { passive: true },
+          );
+        })(containers[j]);
+      }
+
+      // Recompute once fonts finish loading (prevents off-by-a-few-px wraps).
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready
+          .then(function () {
+            updateAll();
+          })
+          .catch(function () {});
+      } else {
+        setTimeout(updateAll, 300);
+      }
+    } catch (e) {
+      // Fail silently.
+    }
+  };
+
   // Reflect scrolling in navigation
   var navActive = function (section) {
     var $el = $("#navbar > ul");
@@ -239,6 +346,7 @@
     contentWayPoint();
     burgerMenu();
     initThemeToggle();
+    initLatestNewsScroll();
 
     clickMenu();
     // navActive();

@@ -76,6 +76,125 @@ p {
   margin-bottom: 0.25em;
 }
 
+/* Latest News scroll area (shows N items)
+  N is controlled by the JS sizing logic via data-visible-items on .latest-news-wrap. */
+.latest-news-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.latest-news-scroll {
+  width: 100%;
+  max-width: none;
+
+  /* small right padding so text doesn't hug the scrollbar */
+  padding: 0 4px 0 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: none;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  /* Avoid layout shift when scrollbar appears (supported in modern browsers) */
+  scrollbar-gutter: stable;
+
+  /* Hide scrollbar by default; reveal on hover/focus */
+  scrollbar-width: none;
+  scrollbar-color: color-mix(in srgb, var(--color-text-muted) 45%, transparent)
+    transparent;
+  -ms-overflow-style: auto;
+}
+
+html[data-theme="dark"] .latest-news-scroll {
+  box-shadow: none;
+}
+
+/* Reset list spacing inside the scroll container */
+.latest-news-scroll .latest-news-list {
+  margin: 0;
+  padding-left: 1.05em;
+}
+
+.latest-news-scroll .latest-news-list li {
+  margin-bottom: 0.35em;
+}
+
+/* WebKit scrollbar: always visible */
+.latest-news-scroll::-webkit-scrollbar {
+  width: 0;
+}
+
+.latest-news-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.latest-news-scroll::-webkit-scrollbar-thumb {
+  background-color: color-mix(
+    in srgb,
+    var(--color-text-muted) 40%,
+    transparent
+  );
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+/* Reveal scrollbar when user hovers the box (or focuses a link inside) */
+.latest-news-wrap:hover .latest-news-scroll,
+.latest-news-wrap:focus-within .latest-news-scroll {
+  scrollbar-width: thin;
+}
+
+.latest-news-wrap:hover .latest-news-scroll::-webkit-scrollbar,
+.latest-news-wrap:focus-within .latest-news-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.latest-news-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--color-text-muted) 55%,
+    transparent
+  );
+}
+
+.latest-news-scroll::-webkit-scrollbar-thumb:active {
+  background-color: color-mix(
+    in srgb,
+    var(--color-text-muted) 70%,
+    transparent
+  );
+}
+
+/* Bottom fade hint (fixed at the bottom of the box; hidden at bottom) */
+.latest-news-wrap .latest-news-fade,
+.latest-news-scroll .latest-news-fade {
+  position: absolute;
+  left: 0;
+  /* don't dim the scrollbar area */
+  right: 8px;
+  bottom: 0;
+  /* Roughly fade ~2 items to hint scrollability */
+  height: clamp(56px, 4.8em, 88px);
+  pointer-events: none;
+  border-radius: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    color-mix(in srgb, var(--color-bg) 92%, transparent)
+  );
+  opacity: 1;
+  transition: opacity 160ms ease;
+  z-index: 2;
+}
+
+.latest-news-wrap[data-at-bottom="true"] .latest-news-fade,
+.latest-news-scroll[data-at-bottom="true"] .latest-news-fade {
+  opacity: 0;
+}
+
 /* Content lists: match the Latest News left alignment (do not affect sidebar/nav) */
 #colorlib-main ul {
   margin: 0 0 1.2em 0.6em;
