@@ -99,6 +99,19 @@ p {
   overflow-wrap: break-word;
 }
 
+/* Inline emphasis: nicer font, same size */
+#colorlib-main .text-emphasis {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: inherit;
+  line-height: inherit;
+  color: var(--color-text-strong);
+  padding: 0 0.1em;
+  border-radius: 0.2em;
+  box-shadow: inset 0 -0.35em 0 var(--color-primary-light);
+}
+
 /* Muted ranking/meta labels like (SCIE, Q1), (CORE A*) */
 #colorlib-main .rank-tag {
   color: var(--color-text-muted);
