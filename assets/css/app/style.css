@@ -2069,6 +2069,11 @@ html[data-theme="dark"] .colorlib-nav-toggle.active i {
     opacity: 1;
     visibility: visible;
   }
+
+  /* Mobile: push content down a bit under the fixed hamburger/X */
+  #colorlib-main {
+    padding-top: 70px;
+  }
 }
 
 @media screen and (max-width: 480px) {
