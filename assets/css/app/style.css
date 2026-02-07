@@ -137,15 +137,16 @@ html[data-theme="dark"] .latest-news-scroll {
      - #colorlib-main adds 1em side padding
      - Bootstrap gutters are handled by .row/-15px + .col/+15px */
   .page-home .latest-news-wrap {
-    margin-left: 0;
-    margin-right: 0;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
 
   .page-home .latest-news-scroll {
     /* Make the visible box itself flush with the viewport edges */
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     box-sizing: border-box;
 
     /* Keep inner content aligned with the rest of the page */
