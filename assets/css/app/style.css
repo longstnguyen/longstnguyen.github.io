@@ -76,6 +76,10 @@ p {
   margin-bottom: 0.25em;
 }
 
+.latest-news-list li:last-child {
+  margin-bottom: 0;
+}
+
 /* Latest News scroll area (shows N items)
   N is controlled by the JS sizing logic via data-visible-items on .latest-news-wrap. */
 .latest-news-wrap {
@@ -123,22 +127,33 @@ html[data-theme="dark"] .latest-news-scroll {
   margin-bottom: 0.35em;
 }
 
+.latest-news-scroll .latest-news-list li:last-child {
+  margin-bottom: 0;
+}
+
 /* Mobile: keep bullets visible (overflow scroll can clip outside markers) */
 @media screen and (max-width: 768px) {
   .latest-news-scroll {
     /* Ensure list markers have room inside the scroll area */
     padding-left: 0px;
-    padding-right: 8px;
+    /* Reserve space so text doesn't sit under the scrollbar */
+    padding-right: 14px;
     overflow-x: hidden;
   }
 
   .latest-news-scroll .latest-news-list {
-    /* Match the main-content UL spacing */
-    margin: 0 0 1.2em 0em;
+    /* No extra bottom space inside the scroll box */
+    margin: 0;
     padding-left: 0;
     list-style-type: disc;
     /* Prevent marker clipping inside overflow-y:auto on mobile browsers */
     list-style-position: inside;
+  }
+
+  /* Mobile: make the Latest News scrollbar look shorter */
+  .page-home .latest-news-scroll::-webkit-scrollbar-track,
+  .page-publications .latest-news-scroll::-webkit-scrollbar-track {
+    margin: 22px 0;
   }
 }
 
@@ -175,7 +190,7 @@ html[data-theme="dark"] .latest-news-scroll {
 .page-home .latest-news-scroll::-webkit-scrollbar-track,
 .page-publications .latest-news-scroll::-webkit-scrollbar-track {
   background: transparent;
-  margin: 14px 0;
+  margin: 18px 0;
 }
 
 .page-home .latest-news-scroll::-webkit-scrollbar-thumb,
@@ -241,7 +256,7 @@ html[data-theme="dark"] .latest-news-scroll {
   position: absolute;
   left: 0;
   /* don't dim the scrollbar area */
-  right: 8px;
+  right: 32px;
   bottom: 0;
   /* Roughly fade ~2 items to hint scrollability */
   height: clamp(56px, 4.8em, 88px);
@@ -257,18 +272,30 @@ html[data-theme="dark"] .latest-news-scroll {
   z-index: 2;
 }
 
-.page-home .latest-news-wrap .latest-news-fade,
-.page-home .latest-news-scroll .latest-news-fade,
-.page-publications .latest-news-wrap .latest-news-fade,
-.page-publications .latest-news-scroll .latest-news-fade {
-  right: 5px;
-}
-
 @media screen and (max-width: 768px) {
   /* Mobile: fade should span the full box width */
   .latest-news-wrap .latest-news-fade,
   .latest-news-scroll .latest-news-fade {
-    right: 0;
+    right: 0px;
+    /* Keep fade full-width, but don't dim the scrollbar area */
+    padding-right: 14px;
+    box-sizing: border-box;
+    background-clip: content-box;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Mobile has no hover: keep the scrollbar thumb visible */
+  .latest-news-scroll {
+    scrollbar-width: thin;
+  }
+
+  .latest-news-scroll::-webkit-scrollbar-thumb {
+    background-color: color-mix(
+      in srgb,
+      var(--color-text-muted) 45%,
+      transparent
+    );
   }
 }
 
