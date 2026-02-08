@@ -275,9 +275,9 @@ html[data-theme="dark"] .latest-news-scroll {
 .latest-news-scroll .latest-news-fade {
   position: absolute;
   left: 0;
-  right: 0;
-  /* Don't dim the scrollbar area, but also don't cut the fade too early */
-  padding-right: 12px;
+  /* Keep the fade from overlapping the overlay scrollbar */
+  right: 10px;
+  padding-right: 0;
   box-sizing: border-box;
   background-clip: content-box;
   bottom: 0;
@@ -299,7 +299,7 @@ html[data-theme="dark"] .latest-news-scroll {
   /* Mobile: fade should span the full box width */
   .latest-news-wrap .latest-news-fade,
   .latest-news-scroll .latest-news-fade {
-    right: 0px;
+    right: 10px;
   }
 }
 
@@ -407,12 +407,12 @@ html[data-theme="dark"] #colorlib-main .rank-tag {
 
 #colorlib-main .pub-year .year {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.1;
   color: var(--color-text-strong);
   letter-spacing: 0.5px;
   position: relative;
-  top: -4px;
+  top: -2px;
 }
 
 #colorlib-main .pub-year::after {
