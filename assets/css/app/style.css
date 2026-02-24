@@ -546,12 +546,14 @@ figure figcaption {
 #colorlib-aside .author-img {
   width: 150px;
   height: 150px;
+  display: block;
   margin: 0 auto;
   margin-bottom: 30px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
+  object-fit: cover;
 }
 #colorlib-aside .position {
   display: block;
@@ -1019,9 +1021,6 @@ body.offcanvas .colorlib-nav-toggle {
 }
 
 .author-img {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
   position: relative;
 }
 
