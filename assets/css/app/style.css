@@ -329,8 +329,8 @@ html[data-theme="dark"] .latest-news-scroll {
 
 @media screen and (max-width: 768px) {
   #colorlib-main ul {
-    margin-left: 1em;
-    padding-left: 0.6em;
+    margin-left: 1.2em;
+    padding-left: 0.8em;
   }
 }
 
