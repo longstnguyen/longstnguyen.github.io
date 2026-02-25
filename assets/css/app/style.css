@@ -327,6 +327,13 @@ html[data-theme="dark"] .latest-news-scroll {
   list-style-position: outside;
 }
 
+@media screen and (max-width: 768px) {
+  #colorlib-main ul {
+    margin-left: 1em;
+    padding-left: 0.6em;
+  }
+}
+
 /* Nested lists should still show hierarchy */
 #colorlib-main ul ul {
   margin-top: 0.6em;
