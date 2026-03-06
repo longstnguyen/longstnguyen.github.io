@@ -389,7 +389,7 @@ html[data-theme="dark"] #colorlib-main .rank-tag {
   counter-increment: pub;
   position: relative;
   padding-left: 2.35em;
-  margin-bottom: 0.35em;
+  margin-bottom: 0.5em;
 }
 
 #colorlib-main ol.pub-list > li::before {
@@ -1054,9 +1054,10 @@ body.offcanvas .colorlib-nav-toggle {
   margin-bottom: 15px;
   display: block;
   font-size: 10px;
+  font-family: "Optima", Arial, sans-serif;
+  font-weight: 500;
   text-transform: uppercase;
   color: #aaaaaa;
-  font-weight: 400;
   letter-spacing: 5px;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
