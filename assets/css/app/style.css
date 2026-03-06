@@ -457,6 +457,7 @@ html[data-theme="dark"] #colorlib-main .rank-tag {
   text-justify: inter-word;
   hyphens: auto;
   overflow-wrap: break-word;
+  margin-bottom: 0.35em;
 }
 
 h1,
