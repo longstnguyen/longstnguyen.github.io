@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../../optima/OPTIMA.TTF") format("truetype");
+  src: url("../../fonts/OPTIMA.TTF") format("truetype");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("../../optima/Optima_Italic.ttf") format("truetype");
+  src: url("../../fonts/Optima_Italic.ttf") format("truetype");
 }
 
 @font-face {
@@ -19,5 +19,5 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../../optima/OPTIMA_B.TTF") format("truetype");
+  src: url("../../fonts/OPTIMA_B.TTF") format("truetype");
 }
