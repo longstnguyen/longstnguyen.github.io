@@ -1,0 +1,13 @@
+@article{10.25073/2588-1086/vnucsce.7020,
+	title        = {A Two-Stage Vietnamese Spelling Correction Pipeline Combining Underthesea and BARTpho},
+	author       = {Hao Huynh and Long Nguyen and Nam Nguyen and Hoang Nguyen and Tho Quan},
+	year         = 2026,
+	journal      = {VNU Journal of Science: Computer Science and Communication Engineering},
+	volume       = 42,
+	number       = 1,
+	doi          = {10.25073/2588-1086/vnucsce.7020},
+	issn         = {2588-1086},
+	url          = {//jcsce.vnu.edu.vn/index.php/jcsce/article/view/7020},
+	keywords     = {},
+	abstract     = {Vietnamese spelling correction is challenging due to the language’s rich diacritic system, syllable-based tokenization, and the frequent presence of strict entities in administrative andlegal texts. While sequence-to-sequence models achieve strong correction accuracy, they are proneto over-correction and unintended rewriting under domain shift, which limits their reliability in highstakes applications. In this paper, we propose a deployment-oriented two-stage Vietnamese spellingcorrection pipeline. The first stage performs text normalization and conservative error detection usingUnderthesea, combined with entity masking to preserve rigid identifiers and formatting. The secondstage applies context-aware correction with a BARTpho sequence-to-sequence model, followed bydetector-guided post-processing and iterative masked refinement to control unnecessary edits. Tosupport realistic evaluation, we construct a hybrid dataset that mixes synthetic spelling noise withreal-world errors collected from administrative documents. Experiments against strong multilingualand Vietnamese-specific baselines show that the proposed pipeline achieves high correction accuracy while significantly reducing over-correction. Beyond standard end-to-end metrics, we introducedetection-oriented analyses that explicitly quantify correction behavior at flagged positions, providing clearer evidence of practical safety for real-world deployment.Keywords: Vietnamese spelling correction, controlled text editing, sequence-to-sequence models,Underthesea, BARTpho, administrative text}
+}
