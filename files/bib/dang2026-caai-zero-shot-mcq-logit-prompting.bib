@@ -1,0 +1,13 @@
+@article{DANG2026100578,
+	title        = {Enhancing large language model performance for automatic zero-shot multiple-choice question answering via single-token logit prompting},
+	author       = {Quoc Phu Dang and Phat T. Tran-Truong and Duc-Ly Vu and Long S.T. Nguyen and Quynh T.N. Vo and Tho Quan},
+	year         = 2026,
+	journal      = {Computers and Education: Artificial Intelligence},
+	volume       = 10,
+	pages        = 100578,
+	doi          = {https://doi.org/10.1016/j.caeai.2026.100578},
+	issn         = {2666-920X},
+	url          = {https://www.sciencedirect.com/science/article/pii/S2666920X26000408},
+	keywords     = {Large language model, Multiple choice question answering, Education, Retrieval-augmented generation, Prompting engineering},
+	abstract     = {While Large Language Models (LLMs) offer significant potential for educational applications, they exhibit distinct limitations when answering multiple-choice questions (MCQs). Because LLMs are optimized for autoregressive token prediction, their performance degrades substantially when answer choices are simply shuffled—a phenomenon known as the Multiple-Choice Symbol Binding (MCSB) limitation. To mitigate this, we introduce a novel prompting technique called Single-Token Logit (STL). Instead of evaluating the output logits of all answer labels, STL extracts and normalizes the logit value of a single token type (specifically “yes") to independently verify each option. We comprehensively evaluate STL against established baselines, including Labels Token Logits (LTL) and Chain-of-Thought (CoT), across the ARC, OpenBookQA, and SciQ datasets. In almost all configurations, STL matches or outperforms the standard baseline (LTL)—yielding gains of up to 11 percentage points—at a moderate computational overhead (1.58× latency and 3.72× GPU memory relative to LTL). Furthermore, sample-by-sample McNemar’s testing (α=0.05) confirms STL is statistically superior to LTL and highly competitive against the computationally expensive CoT method. Finally, we demonstrate STL’s robustness in knowledge-intensive environments by integrating it with Retrieval-Augmented Generation (RAG), where it achieves up to 81.06% accuracy on the combined ARC dataset with Mistral 7B—a 9.36 percentage point gain over the original no-context baseline (LTL) of 71.7%.}
+}
