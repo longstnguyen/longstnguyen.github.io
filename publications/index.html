@@ -90,32 +90,47 @@
       .avatar-ring {
         position: absolute;
         inset: 0;
+        border-radius: 50%;
         pointer-events: none;
         z-index: 2;
-        transform-origin: 50% 50%;
+        opacity: 0.5;
         animation: avatar-spin 6s linear infinite;
+        -webkit-mask: radial-gradient(
+          farthest-side,
+          transparent calc(100% - 3px),
+          #fff calc(100% - 2px)
+        );
+        mask: radial-gradient(
+          farthest-side,
+          transparent calc(100% - 3px),
+          #fff calc(100% - 2px)
+        );
+        background: conic-gradient(
+          #58c7ff,
+          #1f7cff,
+          transparent 40%,
+          transparent 60%,
+          #58c7ff
+        );
+        transition:
+          opacity 0.3s ease,
+          background 0s;
       }
 
-      .avatar-ring circle {
-        fill: none;
-        stroke: #58c7ff;
-        stroke-width: 3;
-        stroke-linecap: round;
-        stroke-dasharray: 94 387;
-        transition: stroke-dasharray 0.6s ease;
-      }
-
-      #colorlib-aside .avatar-wrapper:hover .avatar-ring circle {
-        stroke: url(#avatarRingGradient);
-        stroke-dasharray: 481 0;
+      #colorlib-aside .avatar-wrapper:hover .avatar-ring {
+        opacity: 1;
+        background: conic-gradient(
+          #58c7ff 0deg,
+          #1f7cff 90deg,
+          #0b53d6 180deg,
+          #1f7cff 270deg,
+          #58c7ff 360deg
+        );
       }
 
       @keyframes avatar-spin {
-        from {
-          transform: rotate(-90deg);
-        }
         to {
-          transform: rotate(270deg);
+          transform: rotate(360deg);
         }
       }
     </style>
@@ -142,22 +157,7 @@
         >
           <div class="text-center">
             <div class="avatar-wrapper">
-              <svg class="avatar-ring" viewBox="0 0 156 156" aria-hidden="true">
-                <defs>
-                  <linearGradient
-                    id="avatarRingGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop offset="0%" stop-color="#58C7FF" />
-                    <stop offset="60%" stop-color="#1F7CFF" />
-                    <stop offset="100%" stop-color="#0B53D6" />
-                  </linearGradient>
-                </defs>
-                <circle cx="78" cy="78" r="76.5"></circle>
-              </svg>
+              <div class="avatar-ring" aria-hidden="true"></div>
               <img
                 class="author-img"
                 src="../assets/img/Long-CAIR.png"
