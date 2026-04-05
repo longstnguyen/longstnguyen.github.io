@@ -338,6 +338,16 @@
         },
       },
     );
+
+    // Activate last nav item when scrolled to page bottom
+    $(window).on("scroll", function () {
+      if ($(window).scrollTop() + $(window).height() >= $(document).height() - 20) {
+        var $last = $section.last();
+        if ($last.length) {
+          navActive($last.data("section"));
+        }
+      }
+    });
   };
 
   // Document on load.
