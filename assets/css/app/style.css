@@ -342,6 +342,7 @@ html[data-theme="dark"] .latest-news-scroll {
   text-align: left;
   overflow-wrap: break-word;
   word-break: break-word;
+  hyphens: auto;
 }
 
 /* Inline emphasis: nicer font, same size */
@@ -455,6 +456,7 @@ html[data-theme="dark"] #colorlib-main .rank-tag {
   text-align: left;
   overflow-wrap: break-word;
   word-break: break-word;
+  hyphens: auto;
   margin-bottom: 0.35em;
 }
 
