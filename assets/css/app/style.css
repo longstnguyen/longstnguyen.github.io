@@ -370,6 +370,14 @@ html[data-theme="dark"] #colorlib-main .rank-tag {
   opacity: 0.5;
 }
 
+/* Publication distinctions such as nominations and post-publication selections */
+#colorlib-main .paper-distinction {
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--color-primary);
+  font-weight: 550;
+  font-size: 0.95em;
+}
+
 /* Award highlight: subtle color + dotted underline */
 #colorlib-main .award-highlight {
   text-decoration: underline;
