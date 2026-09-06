@@ -237,7 +237,9 @@
         var list = scrollEl.querySelector(".latest-news-list");
         if (!list) return;
 
-        var items = list.querySelectorAll("li");
+        // Only visible items count toward the height; hidden ones report
+        // offsetTop/offsetHeight of 0 and would collapse the scroll area.
+        var items = list.querySelectorAll("li:not([hidden])");
         var visibleItems = parseVisibleItems(container);
 
         if (!items || items.length <= visibleItems) {
