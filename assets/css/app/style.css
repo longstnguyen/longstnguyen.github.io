@@ -362,12 +362,10 @@ html[data-theme="dark"] .latest-news-scroll {
 /* Muted ranking/meta labels like (SCIE, Q1), (CORE A*) */
 #colorlib-main .rank-tag {
   color: #667085;
-  opacity: 0.5;
 }
 
 html[data-theme="dark"] #colorlib-main .rank-tag {
   color: #9aa4b2;
-  opacity: 0.5;
 }
 
 /* Publication distinctions such as nominations and post-publication selections */
