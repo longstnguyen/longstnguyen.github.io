@@ -1,5 +1,5 @@
 @inproceedings{nguyen-etal-2026-fast,
-    title = "Fast and Focused: Interactive Repository-Level Fill-in-the-Middle Code Completion with Hybrid Structural Retrieval",
+    title = {{Fast and Focused: Interactive Repository-Level Fill-in-the-Middle Code Completion with Hybrid Structural Retrieval}},
     author = "Nguyen, Long S. T.  and
       Huynh, Dat  and
       Vo, Quynh  and
@@ -20,6 +20,6 @@
     url = "https://aclanthology.org/2026.emnlp-main.81/",
     doi = "10.18653/2026.emnlp-main.81",
     pages = "1856--1874",
-    ISBN = "979-8-89176-459-0"
+    ISBN = "979-8-89176-459-0",
+    abstract = "Large language models are effective at code completion when the required evidence is local, but repository-level fill-in-the-middle completion remains challenging when it depends on code and structural relationships across files. We present ACAR, a framework that combines lexical and AST/LSP-based structural retrieval through line-level reciprocal rank fusion, then applies syntax-aware post-processing to align generated completions with the surrounding code. We evaluate ACAR on RepoEval, ReccEval, and CrossCodeEval across Python, Java, TypeScript, and C{\#}, covering more than 3,000 real-world repositories. In the main Qwen2.5-Coder experiments, ACAR outperforms strong retrieval baselines in most settings, reaching 42.98 EM on ReccEval and 32.86 on CrossCodeEval at 3B, versus 36.25 and 28.40 for the strongest retrieval baseline, respectively. With the largest tested Qwen and DeepSeek backbones, ACAR improves EM over their corresponding no-retrieval baselines across all five evaluation settings. Ablations show that lexical and structural evidence are complementary, while removing syntax-aware refinement causes the largest drop in edit similarity. These gains come with 87{--}95 ms of non-decoding overhead under warm-cache conditions across the three benchmarks, supporting latency-sensitive code completion. To support reproducibility, we make our implementation and evaluation scripts publicly available at \url{https://github.com/longstnguyen/ACAR}."
 }
-

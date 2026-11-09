@@ -1,5 +1,5 @@
 @inproceedings{nguyen-etal-2026-bahnar,
-    title = "{B}ahnar{--}{V}ietnamese Parallel-Sentence Retrieval: A Low-Resource Case Study with Lexical, Neural, and Hybrid Methods",
+    title = {{Bahnar--Vietnamese Parallel-Sentence Retrieval: A Low-Resource Case Study with Lexical, Neural, and Hybrid Methods}},
     author = "Nguyen, Thi Ty  and
       Nguyen, Long S. T.  and
       Tran-Truong, Phat T.  and
@@ -17,6 +17,6 @@
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2026.aacl-long.59/",
     pages = "1260--1280",
-    ISBN = "979-8-89176-439-2"
+    ISBN = "979-8-89176-439-2",
+    abstract = "For very low-resource language pairs such as Bahnar-Vietnamese, the relative effectiveness of generic multilingual, language-pair-specific lexical, and task-adapted retrieval remains unclear. We study Bahnar-Vietnamese parallel-sentence retrieval (bitext retrieval) as a controlled candidate-ranking task and compare lexical, alignment-based, neural, and hybrid methods under a development-based selection protocol. The strongest off-the-shelf encoder, LaBSE, reaches 24.24{\%} Recall@1, while symmetric IBM1 reaches 49.33{\%}. Among four in-domain modern dense retrievers, development selection chooses DPR-XM, which reaches 47.43{\%} Recall@1 and 72.21{\%} Recall@10. XLM-R LoRA reaches 64.02{\%} Recall@10, and the development-selected XLM-R-first IBM1 reranker gives the highest Recall@1 point estimate, at 51.62{\%}, with an MRR of 0.5579. Paired tests do not establish a significant difference between the hybrid and IBM1 at the 0.05 level, although reranking substantially improves over its neural first stage. Under pair-specific training, LoRA projection with CSLS also performs strongly on Khmer-Vietnamese and Lao-Vietnamese, reaching 80.14{\%} and 84.58{\%} Recall@1. Overall, the results show complementary strengths between lexical alignment and lightweight neural adaptation in low-resource bitext retrieval. Data and code are available at \url{https://github.com/NgThTy/translation-vn-bahna}."
 }
-
